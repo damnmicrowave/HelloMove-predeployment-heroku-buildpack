@@ -10,13 +10,13 @@ if [ -f $ENV_DIR/PROJECT_PATH ]; then
 	if [ -d $BUILD_DIR/$PROJECT_PATH ]; then
 		echo "-----> Subdir buildpack in $PROJECT_PATH"
 		echo "       creating cache: $CACHE_DIR"
+		mkdir $BUILD_DIR/backend/static
 		mkdir -p $CACHE_DIR
 		TMP_DIR=`mktemp -d $CACHE_DIR/subdirXXXXX`
 		echo "       created tmp dir: $TMP_DIR"
 		echo "       moving working dir: $PROJECT_PATH to $TMP_DIR"
 		cp -R $BUILD_DIR/$PROJECT_PATH/. $TMP_DIR/
 		echo "       moving frontend static files to $TMP_DIR/static/"
-		mkdir $BUILD_DIR/backend/static/
 		cp -R $BUILD_DIR/frontend/build/static/* $TMP_DIR/static/
 	 	echo "       cleaning build dir $BUILD_DIR"
 		rm -rf $BUILD_DIR
