@@ -16,8 +16,8 @@ if [ -f $ENV_DIR/PROJECT_PATH ]; then
 		echo "       created tmp dir: $TMP_DIR"
 		echo "       moving working dir: $PROJECT_PATH to $TMP_DIR"
 		cp -R $BUILD_DIR/$PROJECT_PATH/. $TMP_DIR/
-		echo "       moving frontend static files to $TMP_DIR/static/"
-		cp -R $BUILD_DIR/frontend/build/static/* $TMP_DIR/static/
+		echo "       moving frontend files to $TMP_DIR/build/"
+		cp -R $BUILD_DIR/frontend/build/* $TMP_DIR/build/
 	 	echo "       cleaning build dir $BUILD_DIR"
 		rm -rf $BUILD_DIR
 		echo "       recreating $BUILD_DIR"
